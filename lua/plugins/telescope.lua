@@ -4,7 +4,12 @@ return {
     keys =
     {
         {'<leader>t', "<cmd>Telescope find_files<cr>", desc = "Find file"},
-        {'<leader>p', "<cmd>Telescope find_files<cr>", desc = "Find file in current file directory"},
+        {'<leader>p', 
+            function() 
+                require("telescope.builtin").find_files({ cwd = require("telescope.utils").buffer_dir() })
+            end, 
+            desc = "Find file in current file directory" 
+        },
         {'<leader>b', "<cmd>Telescope buffers<cr>", desc = "Find buffer"},
         {'<leader>gg', "<cmd>Telescope live_grep<cr>", desc = "Live grep"},
         {'<leader>gw', "<cmd>Telescope grep_string<cr>", desc = "Grep string under cursor"}
