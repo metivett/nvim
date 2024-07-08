@@ -39,7 +39,11 @@ require("linenumbers")
 vim.opt.hlsearch = true
 keymap( 'n', '<ESC>', [[<ESC>:noh<CR>]], noremap_opts )
 vim.opt.incsearch = true
+--- Wildmenu
+vim.opt.wildmode = "longest:full,full"
 
 -- Mappings
 --- Terminal mode
 keymap( 't', '<ESC><ESC>', [[<C-\><C-n>]], noremap_opts )
+--- map S-Enter to edit line above in insert mode (using iterm2 remapping S-Enter to ✠)
+keymap( 'i', '✠', [[<C-O>O]], noremap_opts )
